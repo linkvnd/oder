@@ -1,0 +1,2935 @@
+<!-- Developer By CMSNT.CO | FB.COM/CMSNT.CO | ZALO.ME/0947838128 | MMO Solution -->
+<!doctype html>
+<html lang="vi" data-layout-style="detached" data-layout-position="fixed" data-layout="vertical" data-bs-theme="light" data-topbar="light" data-sidebar="dark" data-theme="minimal" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="canonical" href="index.html" />
+    <title>Tạo đơn hàng | DICHVU.C25TOOL.NET - Tăng Like, Follow, View Tự Động Nhanh Chóng</title>
+    <meta name="description" content="Mua dịch vụ mạng xã hội tự động với SMM Panel giá rẻ: Tăng like, follow, view YouTube, TikTok, Instagram, Facebook,... Nạp tiền nhanh, hỗ trợ 24/7, API cho reseller." />
+    <meta name="keywords" content="c25 tool, c25tool, c25toolnet, c25, dvmxh, buff facebook, tiktok, youtube, instagram">
+    <meta name="copyright" content="DICHVU.C25TOOL.NET" />
+    <meta name="author" content="DICHVU.C25TOOL.NET" />
+    <meta property="og:url" content="https://dichvu.c25tool.net/">
+    <meta property="og:site_name" content="https://dichvu.c25tool.net/" />
+    <meta property="og:title" content="Tạo đơn hàng | DICHVU.C25TOOL.NET - Tăng Like, Follow, View Tự Động Nhanh Chóng" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image"
+        content="https://dichvu.c25tool.net/assets/storage/images/image_8OK.png" />
+    <meta property="og:image:secure"
+        content="https://dichvu.c25tool.net/assets/storage/images/image_8OK.png" />
+    <meta name="twitter:title" content="Tạo đơn hàng | DICHVU.C25TOOL.NET - Tăng Like, Follow, View Tự Động Nhanh Chóng" />
+    <meta name="twitter:image"
+        content="https://dichvu.c25tool.net/assets/storage/images/image_8OK.png" />
+    <meta name="twitter:image:alt" content="Tạo đơn hàng | DICHVU.C25TOOL.NET - Tăng Like, Follow, View Tự Động Nhanh Chóng" />
+    <link rel="icon" type="image/png" href="../../../../assets/storage/images/favicon_ZD5.png" />
+
+    <!-- Sweet Alert css-->
+    <link href="../../../../public/client/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet"
+        type="text/css" />
+    <!-- plugin css -->
+    <link href="../../../../public/client/assets/libs/jsvectormap/jsvectormap.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- Layout config Js -->
+    <script src="../../../../public/client/assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="../../../../public/client/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="../../../../public/client/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- aos css -->
+    <link rel="stylesheet" href="../../../../public/client/assets/libs/aos/aos.css" />
+    <!-- App Css-->
+    <link href="../../../../public/client/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="../../../../public/client/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <!-- Main Css-->
+    <link rel="stylesheet" href="../../../../public/css/main.css@v=1.0.4.css">
+    <link rel="stylesheet" href="../../../../mod/css/main.css@v=1.0.1.css">
+
+    <!-- jQuery -->
+    <script src="../../../../public/js/jquery-3.6.0.js"></script>
+
+    <!-- Simple Notify CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css" />
+    <!-- Simple Notify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
+
+ 
+   
+
+
+    
+
+    
+
+    
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../../../mod/css/order.css@v=1.0.5.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../../../../mod/js/main.js@v=1.0.0"></script>
+    
+</head>
+
+<script>
+function showMessage(message, type) {
+    const commonOptions = {
+        effect: 'fade',
+        speed: 300,
+        customClass: null,
+        customIcon: null,
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 3000,
+        gap: 20,
+        distance: 20,
+        type: 'outline',
+        position: 'right top'
+    };
+
+    const options = {
+        success: {
+            status: 'success',
+            title: 'Thành công!',
+            text: message,
+        },
+        error: {
+            status: 'error',
+            title: 'Thất bại!',
+            text: message,
+        }
+    };
+    new Notify(Object.assign({}, commonOptions, options[type]));
+}
+
+// Hàm hiển thị thông báo warning với xác nhận (dạng đơn giản)
+const showWarning = (title, message, confirmText = "Đồng ý", cancelText = "Hủy") => {
+    return Swal.fire({
+        title: title,
+        text: message,
+        icon: "warning",
+        showCancelButton: true,
+        customClass: {
+            confirmButton: "btn btn-primary w-xs me-2 mt-2",
+            cancelButton: "btn btn-danger w-xs mt-2"
+        },
+        confirmButtonText: confirmText,
+        cancelButtonText: cancelText,
+        buttonsStyling: false,
+        showCloseButton: true
+    });
+};
+
+// Hàm hiển thị thông báo thành công
+const showSuccess = (title, message) => {
+    return Swal.fire({
+        title: title,
+        text: message,
+        icon: "success",
+        showCancelButton: false,
+        buttonsStyling: false,
+        showCloseButton: true
+    });
+};
+
+// Hàm hiển thị thông báo lỗi với Lord Icon
+const showError = (title, message) => {
+    return Swal.fire({
+        html: `<div class="mt-3">
+                <lord-icon 
+                    src="https://cdn.lordicon.com/tdrtiskw.json" 
+                    trigger="loop" 
+                    colors="primary:#f06548,secondary:#f7b84b" 
+                    style="width:120px;height:120px">
+                </lord-icon>
+                <div class="mt-4 pt-2 fs-15">
+                    <h4>${title}</h4>
+                    <p class="text-muted mx-4 mb-0">${message}</p>
+                </div>
+            </div>`,
+        showCancelButton: true,
+        showConfirmButton: false,
+        customClass: {
+            cancelButton: "btn btn-primary w-xs mb-1"
+        },
+        cancelButtonText: "Đóng",
+        buttonsStyling: false,
+        showCloseButton: true
+    });
+};
+
+
+// Custom Success Alert with Lord Icon
+const showCustomSuccessAlert = (title, message) => {
+    return Swal.fire({
+        html: `<div class="mt-3">
+                <lord-icon 
+                    src="https://cdn.lordicon.com/lupuorrc.json" 
+                    trigger="loop" 
+                    colors="primary:#0ab39c,secondary:#405189" 
+                    style="width:120px;height:120px">
+                </lord-icon>
+                <div class="mt-4 pt-2 fs-15">
+                    <h4>${title}</h4>
+                    <p class="text-muted mx-4 mb-0">${message}</p>
+                </div>
+            </div>`,
+        showCancelButton: true,
+        showConfirmButton: false,
+        customClass: {
+            cancelButton: "btn btn-primary w-xs mb-1"
+        },
+        cancelButtonText: "Ok",
+        buttonsStyling: false,
+        showCloseButton: true
+    });
+};
+
+
+// Email Verification Alert
+const showEmailVerificationAlert = (email) => {
+    return Swal.fire({
+        html: `<div class="mt-3">
+                <div class="avatar-lg mx-auto">
+                    <div class="avatar-title bg-light text-success display-5 rounded-circle">
+                        <i class="ri-mail-send-fill"></i>
+                    </div>
+                </div>
+                <div class="mt-4 pt-2 fs-15">
+                    <h4 class="fs-20 fw-semibold">Xác thực Email của bạn</h4>
+                    <p class="text-muted mb-0 mt-3 fs-13">
+                        Chúng tôi đã gửi email xác thực cho bạn                        <span class="fw-medium text-dark">${email}</span>, 
+                        <br/> Vui lòng kiểm tra nó.                    </p>
+                </div>
+            </div>`,
+        showCancelButton: false,
+        customClass: {
+            confirmButton: "btn btn-primary mb-1"
+        },
+        confirmButtonText: "Ok",
+        buttonsStyling: false,
+        footer: '',
+        showCloseButton: true
+    });
+};
+
+</script>
+
+<style>
+:root {
+ 
+    --vz-primary: #5fbf77;
+    --vz-primary-text-emphasis: #383838;
+    --vz-link-color: #006ec2;
+    --vz-link-hover-color: #0c3388;
+    --vz-primary-rgb: 54,196,125;
+
+}
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;}
+
+html {
+    scroll-behavior: smooth;
+}
+</style>
+
+
+
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="layout-width">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box horizontal-logo">
+                            <a href="../../../../index.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="../../../../assets/storage/images/favicon_ZD5.png" alt=""
+                                        height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="../../../../assets/storage/images/logo_light_J9K.png" alt=""
+                                        height="50">
+                                </span>
+                            </a>
+
+                            <a href="../../../../index.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="../../../../assets/storage/images/favicon_ZD5.png" alt=""
+                                        height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="../../../../assets/storage/images/logo_dark_G4S.png" alt=""
+                                        height="50">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button"
+                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger material-shadow-none"
+                            id="topnav-hamburger-icon">
+                            <span class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+
+                    </div>
+
+                    <div class="d-flex align-items-center">
+
+                         
+                        <div class="dropdown ms-1 topbar-head-dropdown header-item">
+                                                        <button type="button"
+                                class="btn btn-icon btn-topbar material-shadow-none btn-ghost-secondary rounded-circle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-global-line fs-22"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="dropdown-header">
+                                    <h6 class="text-overflow text-muted mb-0 text-uppercase">Chọn ngôn ngữ                                    </h6>
+                                </div>
+                                                                <a href="javascript:void(0);" class="dropdown-item notify-item language py-2"
+                                    onclick="changeLanguage(1)" title="Vietnamese">
+                                    <img src="../../../../assets/storage/flags/flag_Vietnamese.png" alt="Vietnamese"
+                                        class="me-2 rounded" height="18">
+                                    <span
+                                        class="align-middle fw-bold text-primary">Vietnamese</span>
+                                </a>
+                                                                <a href="javascript:void(0);" class="dropdown-item notify-item language py-2"
+                                    onclick="changeLanguage(2)" title="English">
+                                    <img src="../../../../assets/storage/flags/flag_English.png" alt="English"
+                                        class="me-2 rounded" height="18">
+                                    <span
+                                        class="align-middle ">English</span>
+                                </a>
+                                                            </div>
+                                                    </div>
+
+                        <div class="dropdown ms-1 topbar-head-dropdown header-item">
+                            <button type="button"
+                                class="btn btn-icon btn-topbar material-shadow-none btn-ghost-secondary rounded-circle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-money-dollar-circle-line fs-22"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="dropdown-header">
+                                    <h6 class="text-overflow text-muted mb-0 text-uppercase">Chọn tiền tệ                                    </h6>
+                                </div>
+                                                                <a href="javascript:void(0);" class="dropdown-item notify-item language py-2"
+                                    onclick="changeCurrency(3)" title="Đồng">
+                                    <span
+                                        class="align-middle fw-bold text-primary">VND                                        (đ)</span>
+                                </a>
+                                                                <a href="javascript:void(0);" class="dropdown-item notify-item language py-2"
+                                    onclick="changeCurrency(4)" title="Dollar">
+                                    <span
+                                        class="align-middle ">USD                                        ($)</span>
+                                </a>
+                                                            </div>
+                        </div>
+
+
+                        <div class="ms-1 header-item">
+                            <button type="button"
+                                class="btn btn-icon btn-topbar material-shadow-none btn-ghost-secondary rounded-circle light-dark-mode">
+                                <i class='bx bx-moon fs-22'></i>
+                            </button>
+                        </div>
+                        <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                                                        <img class="rounded-circle header-profile-user no-pointer-events"
+                                        src="../../../../assets/storage/images/avatarQXW.png"
+                                        alt="Header Avatar">
+                                    <span class="text-start ms-xl-2">
+                                        <span
+                                            class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Chào mừng</span>
+                                        <span
+                                            class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Khách</span>
+                                    </span>
+                                                                    </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                                                <a class="dropdown-item" href="../../../../client/profile.html"><i
+                                        class="mdi mdi-login text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle">Đăng nhập</span></a>
+                                <a class="dropdown-item" href="../../../../client/register.html"><i
+                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle">Đăng Ký</span></a>
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="NotificationModalbtn-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mt-2 text-center">
+                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                                It!</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="../../../../index.html" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="../../../../assets/storage/images/favicon_ZD5.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="../../../../assets/storage/images/logo_light_J9K.png" alt="" height="50">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="../../../../index.html" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="../../../../assets/storage/images/favicon_ZD5.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="../../../../assets/storage/images/logo_dark_G4S.png" alt="" height="50">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+
+                        <!-- <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="https://dichvu.c25tool.net/client/home">
+                                <img src="https://dichvu.c25tool.net/assets/img/icon-home.webp" alt="Bảng điều khiển"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-widgets">Bảng điều khiển</span>
+                            </a>
+                        </li> -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link active"
+                                href="../../../../order.html">
+                                <img src="../../../../assets/img/icon-order.webp" alt="Tạo đơn hàng"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-widgets">Tạo đơn hàng</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="javascript:void(0);" onclick="showPaymentGatewaysModal()">
+                                <img src="../../../../assets/img/icon-topup.webp" alt="Nạp tiền"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-topup">Nạp tiền</span>
+                            </a>
+                        </li> <!-- end Dashboard Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="../../../../client/orders.html">
+                                <img src="../../../../assets/img/icon-orders.webp" alt="Đơn hàng"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-orders">Đơn hàng đã mua</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="../../../../client/services.html">
+                                <img src="../../../../assets/img/icon-services.webp"
+                                    alt="Bảng giá dịch vụ"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-affiliates">Bảng giá dịch vụ</span>
+                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="../../../../client/affiliates.html">
+                                <img src="../../../../assets/img/icon-link.webp"
+                                    alt="Tiếp thị liên kết"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-affiliates">Tiếp thị liên kết</span>
+                            </a>
+                        </li>
+
+                                                                        <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="../../../../client/support-tickets.html">
+                                <img src="../../../../assets/img/icon-support.webp"
+                                    alt="Yêu cầu hỗ trợ"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-support-tickets">Yêu cầu hỗ trợ</span>
+                            </a>
+                        </li>
+                                                                        <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="../../../../client/document-api.html">
+                                <img src="../../../../assets/img/icon-api.webp" alt="Tài liệu API"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-support-tickets">Tài liệu API</span>
+                            </a>
+                        </li>
+                                                                        <li class="nav-item">
+                            <a class="nav-link menu-link "
+                                href="../../../../client/child-panel.html">
+                                <img src="../../../../assets/img/icon-child.webp" alt="Tạo web riêng"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"><span
+                                    data-key="t-support-tickets">Tạo web riêng</span>
+                            </a>
+                        </li>
+                                                                        <li class="menu-title"><span data-key="t-dich-vu">Dịch vụ</span></li>
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed "
+                                href="index.html#sidebar1" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar1">
+                                <img src="../../../../assets/storage/images/category/MRYV.gif" alt="Dịch vụ Facebook"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-1">Dịch vụ Facebook</span>
+                            </a>
+                            <div class="collapse menu-dropdown "
+                                id="sidebar1">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/like-gia-re15042.html">
+                                            <span
+                                                data-key="t-867">Like Giá rẻ</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/tang-theo-doi.html">
+                                            <span
+                                                data-key="t-647">Tăng Theo Dõi</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/tang-binh-luan15426.html">
+                                            <span
+                                                data-key="t-868">Tăng bình luận</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/like-binh-luan15597.html">
+                                            <span
+                                                data-key="t-872">Like Bình luận</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/tang-like-page15741.html">
+                                            <span
+                                                data-key="t-874">Tăng like page</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/tang-mem-group15816.html">
+                                            <span
+                                                data-key="t-875">Tăng mem group</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/tang-view-video15876.html">
+                                            <span
+                                                data-key="t-876">Tăng view video</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/tang-share15956.html">
+                                            <span
+                                                data-key="t-878">Tăng share</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/view-story16006.html">
+                                            <span
+                                                data-key="t-879">View Story</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/review-danh-gia-page16046.html">
+                                            <span
+                                                data-key="t-880">Review + đánh giá page</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-facebook/tang-mat-livestream17226.html">
+                                            <span
+                                                data-key="t-912">Tăng mắt livestream</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed active"
+                                href="index.html#sidebar134" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar134">
+                                <img src="../../../../assets/storage/images/category/7C8I.gif" alt="Dịch VụTiktok"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-134">Dịch VụTiktok</span>
+                            </a>
+                            <div class="collapse menu-dropdown show"
+                                id="sidebar134">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tang-like-tiktok16281.html">
+                                            <span
+                                                data-key="t-889">Tăng like tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tang-view-tiktok16381.html">
+                                            <span
+                                                data-key="t-891">Tăng view tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tang-follow-tiktok16331.html">
+                                            <span
+                                                data-key="t-890">Tăng follow tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../vip-mat-tiktok15501.html">
+                                            <span
+                                                data-key="t-869">Vip mắt tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tang-save-tiktok16266.html">
+                                            <span
+                                                data-key="t-888">Tăng save Tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tang-comment-tiktok16436.html">
+                                            <span
+                                                data-key="t-892">Tăng comment tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tang-share-tiktok16476.html">
+                                            <span
+                                                data-key="t-893">Tăng share tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tang-mat-live-tiktok16501.html">
+                                            <span
+                                                data-key="t-894">Tăng mắt live tiktok</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tiktok-shop-mua-hang16631.html">
+                                            <span
+                                                data-key="t-895">Tiktok Shop Mua hàng</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../tiktok-shop-stream---hien-thi-mua-hang16651.html">
+                                            <span
+                                                data-key="t-896">Tiktok Shop Stream - Hiển thị mua hàng</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed "
+                                href="index.html#sidebar135" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar135">
+                                <img src="../../../../assets/storage/images/category/3SBM.gif" alt="Dịch vụ Youtube"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-135">Dịch vụ Youtube</span>
+                            </a>
+                            <div class="collapse menu-dropdown "
+                                id="sidebar135">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-youtube/youtube-like16706.html">
+                                            <span
+                                                data-key="t-897">Youtube Like</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-youtube/youtube-sub16736.html">
+                                            <span
+                                                data-key="t-898">Youtube Sub</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-youtube/youtube-livestream16766.html">
+                                            <span
+                                                data-key="t-899">Youtube Livestream</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-youtube/youtube-view-live16826.html">
+                                            <span
+                                                data-key="t-900">Youtube View + Live</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-youtube/youtube-comment16871.html">
+                                            <span
+                                                data-key="t-902">Youtube Comment</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed "
+                                href="index.html#sidebar136" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar136">
+                                <img src="../../../../assets/storage/images/category/5N2G.gif" alt="Dịch vụ Instagram"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-136">Dịch vụ Instagram</span>
+                            </a>
+                            <div class="collapse menu-dropdown "
+                                id="sidebar136">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-instagram/tang-like-instagram16076.html">
+                                            <span
+                                                data-key="t-881">Tăng like instagram</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-instagram/tang-follow-instagram16101.html">
+                                            <span
+                                                data-key="t-882">Tăng follow instagram</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-instagram/tang-comment16151.html">
+                                            <span
+                                                data-key="t-883">Tăng comment</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-instagram/tang-view-instagram16166.html">
+                                            <span
+                                                data-key="t-884">Tăng view instagram</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-instagram/vip-like-instagram16221.html">
+                                            <span
+                                                data-key="t-885">Vip like instagram</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-instagram/view-story-instagram16226.html">
+                                            <span
+                                                data-key="t-886">View story instagram</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed "
+                                href="index.html#sidebar139" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar139">
+                                <img src="../../../../assets/storage/images/icon28S9.png" alt="Dịch vụ Threads"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-139">Dịch vụ Threads</span>
+                            </a>
+                            <div class="collapse menu-dropdown "
+                                id="sidebar139">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-threads/threads---comment15696.html">
+                                            <span
+                                                data-key="t-873">THREADS - COMMENT</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-threads/threads---follow15881.html">
+                                            <span
+                                                data-key="t-877">THREADS - FOLLOW</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-threads/threads---like16251.html">
+                                            <span
+                                                data-key="t-887">THREADS - LIKE</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed "
+                                href="index.html#sidebar140" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar140">
+                                <img src="../../../../assets/storage/images/icon8TSX.png" alt="Dịch vụ Shopee"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-140">Dịch vụ Shopee</span>
+                            </a>
+                            <div class="collapse menu-dropdown "
+                                id="sidebar140">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-shopee/shopee-live15556.html">
+                                            <span
+                                                data-key="t-871">Shopee live</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-shopee/tang-tim--san-pham.html">
+                                            <span
+                                                data-key="t-643">Tăng Tim | Sản Phẩm</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-shopee/shopee-like16901.html">
+                                            <span
+                                                data-key="t-903">Shopee Like</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-shopee/shopee-follow16911.html">
+                                            <span
+                                                data-key="t-904">Shopee Follow</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed "
+                                href="index.html#sidebar141" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar141">
+                                <img src="../../../../assets/storage/images/iconXRSK.png" alt="Dịch vụ Lazada"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-141">Dịch vụ Lazada</span>
+                            </a>
+                            <div class="collapse menu-dropdown "
+                                id="sidebar141">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-lazada/tang-follow-lazada15546.html">
+                                            <span
+                                                data-key="t-870">Tăng Follow lazada</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                <li class="nav-item">
+                            <a class="nav-link menu-link collapsed "
+                                href="index.html#sidebar413" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebar413">
+                                <img src="../../../../assets/storage/images/icon4BNG.png" alt="Dịch vụ Google"
+                                    class="img-fluid img-thumbnail icon-sidebar me-2"> <span
+                                    data-key="t-413">Dịch vụ Google</span>
+                            </a>
+                            <div class="collapse menu-dropdown "
+                                id="sidebar413">
+                                <ul class="nav nav-sm flex-column">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-google/review-google-map16836.html">
+                                            <span
+                                                data-key="t-901">Review google map</span>
+                                        </a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link "
+                                            href="../../../dich-vu-google/danh-gia-google-map.html">
+                                            <span
+                                                data-key="t-915">ĐÁNH GIÁ google map</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                                                
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+
+            <div class="sidebar-background"></div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <script type="text/javascript">
+        function logout() {
+            Swal.fire({
+                title: 'Bạn có chắc không?',
+                text: "Bạn sẽ bị đăng xuất khỏi tài khoản khi nhấn Đồng Ý",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Huỷ bỏ'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "https://dichvu.c25tool.net/client/logout";
+                }
+            })
+        }
+        </script>
+
+
+        <script>
+        function changeLanguage(id) {
+            $.ajax({
+                url: "https://dichvu.c25tool.net/ajaxs/client/update.php",
+                method: "POST",
+                dataType: "JSON",
+                data: {
+                    action: 'changeLanguage',
+                    id: id
+                },
+                success: function(respone) {
+                    if (respone.status == 'success') {
+                        location.reload();
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Lỗi",
+                            text: respone.msg,
+                            confirmButtonText: "Đồng ý"
+                        });
+                    }
+                },
+                error: function() {
+                    alert(html(response));
+                    history.back();
+                }
+            });
+        }
+        </script>
+        <script>
+        function changeCurrency(id) {
+            $.ajax({
+                url: "https://dichvu.c25tool.net/ajaxs/client/update.php",
+                method: "POST",
+                dataType: "JSON",
+                data: {
+                    action: 'changeCurrency',
+                    id: id
+                },
+                success: function(respone) {
+                    if (respone.status == 'success') {
+                        location.reload();
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Lỗi",
+                            text: respone.msg,
+                            confirmButtonText: "Đồng ý"
+                        });
+                    }
+                },
+                error: function() {
+                    alert(html(response));
+                    history.back();
+                }
+            });
+        }
+        </script>
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
+                        <h4 class="mb-sm-0">Đặt hàng dịch vụ</h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="index.html#">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Đặt hàng dịch vụ</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                                <div class="col-xl-12">
+                    <!-- Secondary Alert -->
+                    <div class="alert alert-secondary alert-dismissible border-2 bg-body-secondary fade show material-shadow"
+                        role="alert">
+                        <p style="text-align:center"><span style="color:#2ecc71"><span style="caret-color:#2ecc71"><strong>TƯNG BỪNG ĐẠI LỄ 30/4 - 1/5 KHUYẾN M&Atilde;I NẠP TIỀN 20%</strong></span></span></p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+                                    <!--
+                                <div class="col-xl-12" id="telegramNoticeCard" style="display: none;">
+                    <div class="card overflow-hidden">
+                        <div class="card-body bg-warning-subtle d-flex">
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-start">
+                                    <i class="fab fa-telegram-plane fa-lg me-3 mt-1 text-warning"
+                                        aria-hidden="true"></i>
+                                    <div>
+                                        <h5 class="alert-heading mb-2" style="font-weight: 600;"><i
+                                                class="ri-telegram-fill me-2 text-warning"></i>Liên kết Telegram                                        </h5>
+                                        <div class="mb-2">
+                                            <p class="mb-2">
+                                                Bạn chưa liên kết tài khoản Telegram để nhận thông báo quan trọng về đơn hàng và tài khoản.                                            </p>
+                                        </div>
+                                        <a href="https://dichvu.c25tool.net/client/profile#security"
+                                            class="btn btn-warning btn-sm">
+                                            <i class="fab fa-telegram-plane me-1"></i>Liên kết ngay                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 align-self-center">
+                                <button type="button" class="btn-close" onclick="hideTelegramNotice();"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+                                <div class="col-xl-7" data-aos="fade-up">
+                    <div class="card border-0 shadow-sm">
+                        <!-- <div class="card-header bg-primary bg-soft py-3">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    <img src="https://dichvu.c25tool.net/assets/img/icon-order.webp"
+                                        alt="Đặt hàng dịch vụ" class="icon-card">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h4 class="card-title mb-0 text-white">Đặt hàng dịch vụ</h4>
+                                    <p class="text-white mb-0 mt-1">Chọn dịch vụ cần mua và đặt hàng</p>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="form-container">
+                                <div class="form-loader">
+                                    <div class="text-center">
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Đang tải...</span>
+                                        </div>
+                                        <div class="loading-text">Đang tải dữ liệu...</div>
+                                    </div>
+                                </div>
+                                <form id="order-form" onsubmit="submitOrder(); return false;" novalidate>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-medium">Tìm nhanh dịch vụ</label>
+                                        <input type="text" class="form-control"
+                                            placeholder="Nhập tên dịch vụ để tìm kiếm nhanh"
+                                            id="quick-search-service" name="quick_search_service">
+                                        <div class="form-text">
+                                            Nhập tên hoặc ID dịch vụ để tìm kiếm nhanh và tự động chọn</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label fw-medium">Nền tảng</label>
+                                            <select class="form-select select2-platform" id="platform" name="platform">
+                                                                                                <option value="1"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/category/MRYV.gif"
+                                                    >
+                                                    Dịch vụ Facebook</option>
+                                                                                                <option value="134"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/category/7C8I.gif"
+                                                    selected>
+                                                    Dịch VụTiktok</option>
+                                                                                                <option value="135"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/category/3SBM.gif"
+                                                    >
+                                                    Dịch vụ Youtube</option>
+                                                                                                <option value="136"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/category/5N2G.gif"
+                                                    >
+                                                    Dịch vụ Instagram</option>
+                                                                                                <option value="139"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/icon28S9.png"
+                                                    >
+                                                    Dịch vụ Threads</option>
+                                                                                                <option value="140"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/icon8TSX.png"
+                                                    >
+                                                    Dịch vụ Shopee</option>
+                                                                                                <option value="141"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/iconXRSK.png"
+                                                    >
+                                                    Dịch vụ Lazada</option>
+                                                                                                <option value="413"
+                                                    data-image="https://dichvu.c25tool.net/assets/storage/images/icon4BNG.png"
+                                                    >
+                                                    Dịch vụ Google</option>
+                                                                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label fw-medium">Phân loại</label>
+                                            <select class="form-select select2-platform" id="category" name="category">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-medium">Dịch vụ</label>
+                                        <select class="form-select select2-platform" id="service" name="service">
+                                        </select>
+                                    </div> 
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-2"> 
+                                            <label
+                                                class="form-label fw-medium mb-0">Liên kết cần tăng</label>
+                                                                                        <small class="text-muted">
+                                                <a href="javascript:void(0)"
+                                                    onclick="showMultiLinkModal();">Bạn muốn mua 1 lần nhiều link?</a>
+                                            </small>
+                                                                                    </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="link" name="link" required 
+                                                placeholder="Nhập liên kết cần tăng tương tác...">
+                                            <button type="button" class="btn btn-dark" id="pasteFromClipboard" 
+                                                title="Dán liên kết từ clipboard">
+                                                <i class="ri-clipboard-line me-1"></i>Dán                                            </button>
+                                        </div>
+                                        <input type="hidden" class="form-control" id="token" name="token"
+                                            value="" disabled>
+                                        <input type="hidden" class="form-control" id="api_key" name="api_key"
+                                            value="" disabled>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-medium">Số lượng</label>
+                                        <input type="number" class="form-control" id="quantity" name="quantity"
+                                            value="1" min="100" max="4000" required>
+                                        <div class="form-text">
+                                            Tối thiểu: <span id="min-quantity"></span> - Tối đa: <span id="max-quantity"></span>                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="comment-container" style="display: none;">
+                                        <label
+                                            class="form-label fw-medium">Nhập mỗi dòng là một bình luận</label>
+                                        <textarea class="form-control" id="comments" name="comments"
+                                            rows="6"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <!-- Price Summary Container -->
+                                        <div
+                                            class="border border-dashed border-primary rounded p-3 bg-light bg-opacity-25">
+                                            <!-- Giá trị đơn hàng -->
+                                            <div class="d-flex align-items-center justify-content-between mb-2"
+                                                id="price-detail-row" style="display: none;">
+                                                <span class="text-muted fs-6">
+                                                    Giá trị đơn hàng:                                                </span>
+                                                <span class="text-muted fs-6">
+                                                    <span id="price">0</span>
+                                                </span>
+                                            </div>
+                                            <!-- Thuế VAT - nhỏ hơn -->
+                                            <div class="d-flex align-items-center justify-content-between mb-2"
+                                                id="tax-detail-row" style="display: none;">
+                                                <span class="text-muted fs-6">
+                                                    Thuế VAT:                                                </span>
+                                                <span class="text-muted fs-6">
+                                                    <span id="price-vat">0</span> (<span id="tax-vat">0</span>%)
+                                                </span>
+                                            </div>
+
+                                            <!-- Separator line khi có thuế -->
+                                            <hr class="my-2 border-dashed" id="price-separator" style="display: none;">
+
+                                            <!-- Tổng tiền - nổi bật -->
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <span class="fw-bold fs-5">
+                                                    Tổng tiền cần thanh toán:                                                </span>
+                                                <span class="fw-bold fs-4">
+                                                    <span id="total-price">0</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-check form-switch mb-2"
+                                        >
+                                        <input class="form-check-input" type="checkbox" id="schedule" name="schedule">
+                                        <label class="form-check-label" for="schedule">Đặt lịch chạy.
+                                            Múi giờ: Asia/Ho_Chi_Minh</label>
+                                    </div>
+                                    <div id="schedule-time-container" class="mt-2" style="display: none;">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="schedule-time"
+                                                name="schedule_time" min=""
+                                                placeholder="Nhấn để chọn ngày giờ">
+                                            <span class="input-group-text">
+                                                <i class="ri-calendar-2-line"></i>
+                                            </span>
+                                        </div>
+                                        <div class="form-text">Chọn thời gian để đặt lịch chạy đơn hàng. <a
+                                                href="../../../../client/scheduled-orders.html"
+                                                class="link-secondary fw-semibold">Xem đơn hàng đang lên lịch</a>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4"></div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">Đặt hàng</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5" data-aos="fade-left">
+                                        
+
+<div class="card border-0 shadow-sm mb-3">
+    <!-- <div class="card-header bg-primary bg-soft py-3">
+        <div class="d-flex align-items-center">
+            <div class="flex-shrink-0">
+                <img src="https://dichvu.c25tool.net/assets/img/icon-user-info.svg"
+                    alt="Thông tin tài khoản" class="icon-card">
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <h4 class="card-title mb-0 text-white">Tài khoản</h4>
+                <p class="text-white mb-0 mt-1">Thông tin tài khoản của bạn</p>
+            </div>
+        </div>
+    </div> -->
+    <div class="card-body">
+        <div class="text-center py-4">
+            <div class="avatar-lg mx-auto">
+                <div class="avatar-title bg-light-subtle text-primary display-5 rounded-circle">
+                    <i class="ri-account-circle-fill"></i>
+                </div>
+            </div>
+            <h5 class="fs-16 mb-2">Vui lòng đăng nhập</h5>
+            <p class="text-muted mb-4">
+                Đăng nhập để xem thông tin tài khoản và sử dụng dịch vụ của chúng tôi.</p>
+            <div class="d-flex justify-content-center gap-2">
+                <a href="../../../../client/profile.html" class="btn btn-primary waves-effect waves-light">
+                    <i class="ri-login-circle-line align-bottom me-1"></i> Đăng nhập                </a>
+                <a href="../../../../client/register.html" class="btn btn-success waves-effect waves-light">
+                    <i class="ri-user-add-line align-bottom me-1"></i> Đăng Ký                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                                        <div class="card border-0 shadow-sm mb-3" id="serviceDetailsCard">
+                        <div class="card-body">
+                            <div class="service-details-container">
+                                <!-- Loading State -->
+                                <div class="text-center py-4" id="serviceDetailsLoading">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Đang tải...</span>
+                                    </div>
+                                    <!-- <div class="mt-2 text-muted">Đang tải chi tiết dịch vụ...</div> -->
+                                </div>
+
+                                <!-- Service Details Content -->
+                                <div id="serviceDetailsContent" style="display: none;">
+                                    <!-- Service ID và Name -->
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <span class="text-muted small">ID dịch vụ:</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <span class="fw-medium text-info" id="serviceDetailId">-</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <span class="text-muted small">Tên dịch vụ:</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <span class="fw-medium" id="serviceDetailName">-</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Service Type -->
+                                    <div class="row mb-3" id="serviceTypeRow" style="display: none;">
+                                        <div class="col-4">
+                                            <span class="text-muted small">Loại dịch vụ:</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <span class="badge bg-secondary" id="serviceDetailType">-</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Average Time -->
+                                    <div class="row mb-3" id="averageTimeRow" style="display: none;">
+                                        <div class="col-4">
+                                            <span class="text-muted small" data-toggle="tooltip" data-placement="bottom"
+                                                title="Trung bình thời gian hoàn thành của 10 đơn hàng có số lượng 1.000">Thời gian hoàn thành:</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <span class="text-success fw-medium" id="serviceAverageTime">-</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Min/Max Quantity -->
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <span class="text-muted small">Giới hạn số lượng:</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <span class="text-primary" id="serviceQuantityRange">-</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Price -->
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <span class="text-muted small">Giá mỗi 1000:</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <span class="text-danger fw-bold" id="serviceDetailPrice">-</span>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Description -->
+                                    <div class="service-description my-3" id="serviceDetailDescription"
+                                        style="display: none;">
+                                        <div class="mb-2">
+                                            <span class="text-muted small">Mô tả dịch vụ:</span>
+                                        </div>
+                                        <div class="description-content p-3 bg-light rounded">
+                                            <div id="serviceDescriptionContent"></div>
+                                        </div>
+                                    </div>
+                                </div> <!-- End serviceDetailsContent -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+</div>
+
+
+
+
+
+
+
+<style>
+.giuseart-pc-contact-bar {
+    left: 9px;
+    bottom: 59px;
+    position: fixed;
+    z-index: 998;
+    margin-bottom: 0
+}
+
+.giuseart-pc-contact-bar li {
+    width: 44px;
+    height: 46px;
+    overflow: hidden;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.giuseart-pc-contact-bar li.facebook {
+    margin-bottom: 8px;
+    background: url(../../../../mod/img/icon-mess.webp);
+    background-repeat: no-repeat;
+}
+
+.giuseart-pc-contact-bar li.zalo {
+    background: url(../../../../mod/img/icon-chat-zalo.webp);
+    background-repeat: no-repeat;
+}
+
+.giuseart-pc-contact-bar li a {
+    display: block;
+    width: 44px;
+    height: 44px;
+}
+</style>
+<ul class="giuseart-pc-contact-bar">
+    <li class="facebook">
+        <a href="https://www.facebook.com/C25TOOLSHOP/" target="_blank" rel="nofollow"></a>
+    </li>
+    <li class="zalo">
+        <a href="https://chat.zalo.me/?phone=0788288957" target="_blank" rel="nofollow"></a>
+    </li>
+</ul>
+
+
+
+
+
+
+<!-- Payment Gateways Modal -->
+<div class="modal fade" id="paymentGatewaysModal" tabindex="-1" aria-labelledby="paymentGatewaysModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content pg-modal-content">
+            <div class="pg-modal-header">
+                <div class="pg-header-content">
+                    <div class="pg-icon-wrapper">
+                        <i class="ri-wallet-3-line"></i>
+                    </div>
+                    <div class="pg-header-text">
+                        <h4 class="pg-title">Chọn cổng thanh toán</h4>
+                        <p class="pg-subtitle">Chọn phương thức thanh toán phù hợp với bạn</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="pg-modal-body">
+                <div id="paymentGatewaysLoader" class="pg-loader">
+                    <div class="pg-loader-content">
+                        <div class="pg-spinner">
+                            <div class="pg-spinner-inner"></div>
+                        </div>
+                        <p class="pg-loader-text">Đang tải danh sách cổng thanh toán...</p>
+                    </div>
+                </div>
+                <div id="paymentGatewaysList" class="pg-gateways-grid d-none">
+                    <!-- Payment gateways will be loaded here -->
+                </div>
+                <div id="paymentGatewaysError" class="pg-error d-none">
+                    <div class="pg-error-content">
+                        <div class="pg-error-icon">
+                            <i class="ri-error-warning-line"></i>
+                        </div>
+                        <h6 class="pg-error-title">Không thể tải danh sách cổng thanh toán</h6>
+                        <p class="pg-error-text">Vui lòng thử lại sau hoặc liên hệ hỗ trợ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Bottom Navigation Menu -->
+<div class="mobile-bottom-nav">
+    <div class="nav-item ">
+        <a href="../../../../index.html">
+            <div class="nav-icon">
+                <i class="ri-home-4-line"></i>
+            </div>
+            <span class="nav-text">Trang chủ</span>
+        </a>
+    </div>
+    <div class="nav-item ">
+        <a href="javascript:void(0);" onclick="showPaymentGatewaysModal()">
+            <div class="nav-icon">
+                <i class="ri-wallet-3-line"></i>
+            </div>
+            <span class="nav-text">Nạp tiền</span>
+        </a>
+    </div>
+    <div class="nav-item nav-item-center active">
+        <a href="../../../../client/order.html">
+            <div class="nav-icon-center">
+                <i class="ri-shopping-cart-line"></i>
+            </div>
+            <span class="nav-text">Tạo đơn hàng</span>
+        </a>
+    </div>
+    <div class="nav-item ">
+        <a href="../../../../client/orders.html">
+            <div class="nav-icon">
+                <i class="ri-file-list-3-line"></i>
+            </div>
+            <span class="nav-text">Đơn hàng</span>
+        </a>
+    </div>
+    <div class="nav-item ">
+        <a href="../../../../client/profile.html">
+            <div class="nav-icon">
+                <i class="ri-user-line"></i>
+            </div>
+            <span class="nav-text">Tài khoản</span>
+        </a>
+    </div>
+</div>
+
+
+
+
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                © All Copyrights Reserved by <a href="../../../../index.html">DICHVU.C25TOOL.NET</a>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    Software By <a href="../../../../index.html">C25TOOL.NET</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+ 
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div> -->
+
+    <!-- Theme Settings -->
+    <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
+        <div class="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header">
+            <h5 class="m-0 me-2 text-white">Theme Customizer</h5>
+
+            <button type="button" class="btn-close btn-close-white ms-auto" id="customizerclose-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <div data-simplebar class="h-100">
+                <div class="p-4">
+                    <h6 class="mb-0 fw-semibold text-uppercase">Layout</h6>
+                    <p class="text-muted">Choose your layout</p>
+
+                    <div class="row gy-3">
+                        <div class="col-4">
+                            <div class="form-check card-radio">
+                                <input id="customizer-layout01" name="data-layout" type="radio" value="vertical" class="form-check-input">
+                                <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="customizer-layout01">
+                                    <span class="d-flex gap-1 h-100">
+                                        <span class="flex-shrink-0">
+                                            <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex-grow-1">
+                                            <span class="d-flex h-100 flex-column">
+                                                <span class="bg-light d-block p-1"></span>
+                                                <span class="bg-light d-block p-1 mt-auto"></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <h5 class="fs-13 text-center mt-2">Vertical</h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check card-radio">
+                                <input id="customizer-layout02" name="data-layout" type="radio" value="horizontal" class="form-check-input">
+                                <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="customizer-layout02">
+                                    <span class="d-flex h-100 flex-column gap-1">
+                                        <span class="bg-light d-flex p-1 gap-1 align-items-center">
+                                            <span class="d-block p-1 bg-primary-subtle rounded me-1"></span>
+                                            <span class="d-block p-1 pb-0 px-2 bg-primary-subtle ms-auto"></span>
+                                            <span class="d-block p-1 pb-0 px-2 bg-primary-subtle"></span>
+                                        </span>
+                                        <span class="bg-light d-block p-1"></span>
+                                        <span class="bg-light d-block p-1 mt-auto"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <h5 class="fs-13 text-center mt-2">Horizontal</h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check card-radio">
+                                <input id="customizer-layout03" name="data-layout" type="radio" value="twocolumn" class="form-check-input">
+                                <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="customizer-layout03">
+                                    <span class="d-flex gap-1 h-100">
+                                        <span class="flex-shrink-0">
+                                            <span class="bg-light d-flex h-100 flex-column gap-1">
+                                                <span class="d-block p-1 bg-primary-subtle mb-2"></span>
+                                                <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex-shrink-0">
+                                            <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex-grow-1">
+                                            <span class="d-flex h-100 flex-column">
+                                                <span class="bg-light d-block p-1"></span>
+                                                <span class="bg-light d-block p-1 mt-auto"></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <h5 class="fs-13 text-center mt-2">Two Column</h5>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="col-4">
+                            <div class="form-check card-radio">
+                                <input id="customizer-layout04" name="data-layout" type="radio" value="semibox" class="form-check-input">
+                                <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="customizer-layout04">
+                                    <span class="d-flex gap-1 h-100">
+                                        <span class="flex-shrink-0 p-1">
+                                            <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex-grow-1">
+                                            <span class="d-flex h-100 flex-column pt-1 pe-2">
+                                                <span class="bg-light d-block p-1"></span>
+                                                <span class="bg-light d-block p-1 mt-auto"></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <h5 class="fs-13 text-center mt-2">Semi Box</h5>
+                        </div>
+                        <!-- end col -->
+                    </div>
+
+                    <div class="form-check form-switch form-switch-md mb-3 mt-4">
+                        <input type="checkbox" class="form-check-input" id="sidebarUserProfile">
+                        <label class="form-check-label" for="sidebarUserProfile">Sidebar User Profile Avatar</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Theme</h6>
+                    <p class="text-muted">Choose your suitable Theme.</p>
+
+                     
+
+                    <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Color Scheme</h6>
+                    <p class="text-muted">Choose Light or Dark Scheme.</p>
+
+                    <div class="colorscheme-cardradio">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-check card-radio">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-mode-light" value="light">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="layout-mode-light">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Light</h5>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-check card-radio dark">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-mode-dark" value="dark">
+                                    <label class="form-check-label p-0 avatar-md w-100 bg-dark material-shadow" for="layout-mode-dark">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-white bg-opacity-10 d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-white bg-opacity-10 rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-white bg-opacity-10 d-block p-1"></span>
+                                                    <span class="bg-white bg-opacity-10 d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Dark</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sidebar-visibility">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Sidebar Visibility</h6>
+                        <p class="text-muted">Choose show or Hidden sidebar.</p>
+                
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-check card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-visibility" id="sidebar-visibility-show" value="show">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-visibility-show">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0 p-1">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column pt-1 pe-2">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Show</h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-visibility" id="sidebar-visibility-hidden" value="hidden">
+                                    <label class="form-check-label p-0 avatar-md w-100 px-2 material-shadow" for="sidebar-visibility-hidden">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column pt-1 px-2">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Hidden</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="layout-width">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Layout Width</h6>
+                        <p class="text-muted">Choose Fluid or Boxed layout.</p>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-check card-radio">
+                                    <input class="form-check-input" type="radio" name="data-layout-width" id="layout-width-fluid" value="fluid">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="layout-width-fluid">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Fluid</h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check card-radio">
+                                    <input class="form-check-input" type="radio" name="data-layout-width" id="layout-width-boxed" value="boxed">
+                                    <label class="form-check-label p-0 avatar-md w-100 px-2 material-shadow" for="layout-width-boxed">
+                                        <span class="d-flex gap-1 h-100 border-start border-end">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Boxed</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="layout-position">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Layout Position</h6>
+                        <p class="text-muted">Choose Fixed or Scrollable Layout Position.</p>
+
+                        <div class="btn-group radio" role="group">
+                            <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-fixed" value="fixed">
+                            <label class="btn btn-light w-sm" for="layout-position-fixed">Fixed</label>
+
+                            <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-scrollable" value="scrollable">
+                            <label class="btn btn-light w-sm ms-0" for="layout-position-scrollable">Scrollable</label>
+                        </div>
+                    </div>
+                    <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Topbar Color</h6>
+                    <p class="text-muted">Choose Light or Dark Topbar Color.</p>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-check card-radio">
+                                <input class="form-check-input" type="radio" name="data-topbar" id="topbar-color-light" value="light">
+                                <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="topbar-color-light">
+                                    <span class="d-flex gap-1 h-100">
+                                        <span class="flex-shrink-0">
+                                            <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex-grow-1">
+                                            <span class="d-flex h-100 flex-column">
+                                                <span class="bg-light d-block p-1"></span>
+                                                <span class="bg-light d-block p-1 mt-auto"></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <h5 class="fs-13 text-center mt-2">Light</h5>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-check card-radio">
+                                <input class="form-check-input" type="radio" name="data-topbar" id="topbar-color-dark" value="dark">
+                                <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="topbar-color-dark">
+                                    <span class="d-flex gap-1 h-100">
+                                        <span class="flex-shrink-0">
+                                            <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex-grow-1">
+                                            <span class="d-flex h-100 flex-column">
+                                                <span class="bg-primary d-block p-1"></span>
+                                                <span class="bg-light d-block p-1 mt-auto"></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <h5 class="fs-13 text-center mt-2">Dark</h5>
+                        </div>
+                    </div>
+
+                    <div id="sidebar-size">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Sidebar Size</h6>
+                        <p class="text-muted">Choose a size of Sidebar.</p>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-default" value="lg">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-size-default">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Default</h5>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-compact" value="md">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-size-compact">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Compact</h5>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-small" value="sm">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-size-small">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1">
+                                                    <span class="d-block p-1 bg-primary-subtle mb-2"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Small (Icon View)</h5>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-small-hover" value="sm-hover">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-size-small-hover">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1">
+                                                    <span class="d-block p-1 bg-primary-subtle mb-2"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Small Hover View</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sidebar-view">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Sidebar View</h6>
+                        <p class="text-muted">Choose Default or Detached Sidebar view.</p>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-layout-style" id="sidebar-view-default" value="default">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-view-default">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Default</h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-layout-style" id="sidebar-view-detached" value="detached">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-view-detached">
+                                        <span class="d-flex h-100 flex-column">
+                                            <span class="bg-light d-flex p-1 gap-1 align-items-center px-2">
+                                                <span class="d-block p-1 bg-primary-subtle rounded me-1"></span>
+                                                <span class="d-block p-1 pb-0 px-2 bg-primary-subtle ms-auto"></span>
+                                                <span class="d-block p-1 pb-0 px-2 bg-primary-subtle"></span>
+                                            </span>
+                                            <span class="d-flex gap-1 h-100 p-1 px-2">
+                                                <span class="flex-shrink-0">
+                                                    <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                        <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                        <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                        <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="bg-light d-block p-1 mt-auto px-2"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Detached</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sidebar-color">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Sidebar Color</h6>
+                        <p class="text-muted">Choose a color of Sidebar.</p>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio" data-bs-toggle="collapse" data-bs-target="#collapseBgGradient.show">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-light" value="light">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-color-light">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-white border-end d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Light</h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio" data-bs-toggle="collapse" data-bs-target="#collapseBgGradient.show">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-dark" value="dark">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="sidebar-color-dark">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-primary d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-white bg-opacity-10 rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Dark</h5>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-link avatar-md w-100 p-0 overflow-hidden border collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBgGradient" aria-expanded="false" aria-controls="collapseBgGradient">
+                                    <span class="d-flex gap-1 h-100">
+                                        <span class="flex-shrink-0">
+                                            <span class="bg-vertical-gradient d-flex h-100 flex-column gap-1 p-1">
+                                                <span class="d-block p-1 px-2 bg-white bg-opacity-10 rounded mb-2"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                                <span class="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex-grow-1">
+                                            <span class="d-flex h-100 flex-column">
+                                                <span class="bg-light d-block p-1"></span>
+                                                <span class="bg-light d-block p-1 mt-auto"></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </button>
+                                <h5 class="fs-13 text-center mt-2">Gradient</h5>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <div class="collapse" id="collapseBgGradient">
+                            <div class="d-flex gap-2 flex-wrap img-switch p-2 px-3 bg-light rounded">
+
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient" value="gradient">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-2" value="gradient-2">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient-2">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient-2"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-3" value="gradient-3">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient-3">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient-3"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-4" value="gradient-4">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient-4">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient-4"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+
+                    <div id="sidebar-color">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Primary Color</h6>
+                        <p class="text-muted">Choose a color of Primary.</p>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="form-check sidebar-setting card-radio">
+                                <input class="form-check-input" type="radio" name="data-theme-colors" id="themeColor-01" value="default">
+                                <label class="form-check-label avatar-xs p-0" for="themeColor-01"></label>
+                            </div>
+                            <div class="form-check sidebar-setting card-radio">
+                                <input class="form-check-input" type="radio" name="data-theme-colors" id="themeColor-02" value="green">
+                                <label class="form-check-label avatar-xs p-0" for="themeColor-02"></label>
+                            </div>
+                            <div class="form-check sidebar-setting card-radio">
+                                <input class="form-check-input" type="radio" name="data-theme-colors" id="themeColor-03" value="purple">
+                                <label class="form-check-label avatar-xs p-0" for="themeColor-03"></label>
+                            </div>
+                            <div class="form-check sidebar-setting card-radio">
+                                <input class="form-check-input" type="radio" name="data-theme-colors" id="themeColor-04" value="blue">
+                                <label class="form-check-label avatar-xs p-0" for="themeColor-04"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="preloader-menu">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Preloader</h6>
+                        <p class="text-muted">Choose a preloader.</p>
+                    
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-preloader" id="preloader-view-custom" value="enable">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="preloader-view-custom">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                        <!-- <div id="preloader"> -->
+                                        <div id="status" class="d-flex align-items-center justify-content-center">
+                                            <div class="spinner-border text-primary avatar-xxs m-auto" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <!-- </div> -->
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Enable</h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-preloader" id="preloader-view-none" value="disable">
+                                    <label class="form-check-label p-0 avatar-md w-100 material-shadow" for="preloader-view-none">
+                                        <span class="d-flex gap-1 h-100">
+                                            <span class="flex-shrink-0">
+                                                <span class="bg-light d-flex h-100 flex-column gap-1 p-1">
+                                                    <span class="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                    <span class="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1">
+                                                <span class="d-flex h-100 flex-column">
+                                                    <span class="bg-light d-block p-1"></span>
+                                                    <span class="bg-light d-block p-1 mt-auto"></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <h5 class="fs-13 text-center mt-2">Disable</h5>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <!-- end preloader-menu -->
+
+                     
+
+                </div>
+            </div>
+
+        </div>
+        <div class="offcanvas-footer border-top p-3 text-center">
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-light w-100" id="reset-layout">Reset</button>
+                </div>
+                <div class="col-6">
+              
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- JAVASCRIPT -->
+<script src="../../../../public/client/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../public/client/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="../../../../public/client/assets/libs/node-waves/waves.min.js"></script>
+<script src="../../../../public/client/assets/libs/feather-icons/feather.min.js"></script>
+<script src="../../../../public/client/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+<script src="https://dichvu.c25tool.net/public/client/assets/js/plugins.js"></script>
+
+<!-- Sweet Alerts js -->
+<script src="../../../../public/client/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+<!-- Sweet alert init js-->
+<script src="../../../../public/client/assets/js/pages/sweetalerts.init.js"></script>
+
+<!-- prismjs plugin -->
+<script src="../../../../public/client/assets/libs/prismjs/prism.js"></script>
+
+<!-- aos js -->
+<script src="../../../../public/client/assets/libs/aos/aos.js"></script>
+
+<!-- animation init -->
+<script src="../../../../public/client/assets/js/pages/animation-aos.init.js"></script>
+
+
+<!-- App js -->
+<script src="../../../../public/client/assets/js/app.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+
+<!--select2 cdn-->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+// Cấu hình và nhãn dành cho JavaScript
+const ORDER_CONFIG = {
+    base_url: "https://dichvu.c25tool.net/",
+    serviceIdFromUrl: "",
+    categorySlug: "dev",
+    platformSlug: "dich-vutiktok"
+};
+
+const ORDER_LABELS = {
+    supportCancel: "Hỗ trợ hủy",
+    warranty: "Bảo hành",
+    slowMode: "Lên chậm",
+    error: "Lỗi",
+    success: "Thành công",
+    processing: "Đang xử lý",
+    loading: "Đang tải...",
+    selectPlatform: "Vui lòng chọn nền tảng",
+    selectCategory: "Vui lòng chọn phân loại",
+    noCategories: "Không có phân loại nào",
+    noServices: "Không có dịch vụ nào",
+    quickSearchPlaceholder: "Nhập tên dịch vụ để tìm kiếm",
+    errorLoadData: "Không thể tải dữ liệu, vui lòng thử lại",
+    errorLoadServiceDetails: "Lỗi kết nối, không thể tải chi tiết dịch vụ",
+    errorCalculatePrice: "Lỗi kết nối, không thể tính tổng giá",
+    noServiceInfo: "Dịch vụ này không có thông tin nền tảng hoặc phân loại",
+    selectingService: "Đang chọn dịch vụ, vui lòng đợi...",
+    serviceSelected: "Đã chọn dịch vụ thành công",
+    pleaseSelectService: "Vui lòng chọn dịch vụ",
+    pleaseEnterLink: "Vui lòng nhập liên kết cần tăng",
+    pleaseEnterValidQuantity: "Vui lòng nhập số lượng hợp lệ",
+    minQuantity: "Số lượng tối thiểu là",
+    maxQuantity: "Số lượng tối đa là",
+    pleaseSelectScheduleTime: "Vui lòng chọn thời gian cho đơn hàng đặt lịch",
+    yes: "Có",
+    no: "Không",
+    confirmOrder: "Xác nhận đặt hàng",
+    ok: "Ok",
+    cancel: "Hủy",
+    loginRequired: "Vui lòng đăng nhập để sử dụng tính năng này",
+    connectionError: "Có lỗi xảy ra khi kết nối đến máy chủ",
+    notification: "Thông báo",
+    scheduleTimeWarning: "Thời gian đặt lịch phải sau thời gian hiện tại ít nhất 5 phút",
+    weekdaysShort: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+    weekdaysLong: ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
+    monthsShort: ["Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12"],
+    monthsLong: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+    // Multi-order labels
+    waiting: "Chờ xử lý",
+    processing: "Đang xử lý",
+    completed: "Hoàn thành",
+    failed: "Thất bại",
+    paused: "Đã tạm dừng",
+    stopped: "Đã dừng",
+    enterLinks: "Vui lòng nhập danh sách liên kết",
+    invalidDelay: "Thời gian chờ phải lớn hơn 0.1 giây",
+    confirmStartMulti: "Bạn có chắc chắn muốn bắt đầu mua {count} đơn hàng?",
+    confirmStopMulti: "Bạn có chắc chắn muốn dừng tiến trình mua đơn?",
+    multiOrderStarted: "Đã bắt đầu tiến trình mua nhiều đơn hàng",
+    multiOrderPaused: "Đã tạm dừng tiến trình",
+    multiOrderResumed: "Đã tiếp tục tiến trình",
+    multiOrderStopped: "Đã dừng tiến trình mua đơn",
+    multiOrderCompleted: "Đã hoàn thành tất cả đơn hàng",
+    orderCreated: "Tạo đơn thành công",
+    orderFailed: "Tạo đơn thất bại",
+    balanceInsufficient: "Số dư không đủ",
+    serviceNotSelected: "Vui lòng chọn dịch vụ trước khi mua nhiều đơn",
+    invalidQuantity: "Số lượng không hợp lệ",
+    commentRequired: "Vui lòng nhập comment cho dịch vụ này",
+    processingOrder: "Đang xử lý đơn hàng...",
+    orderNumber: "Đơn số",
+    totalPrice: "Tổng tiền:",
+    currentBalance: "Số dư hiện tại:",
+    remainingBalance: "Số dư còn lại:",
+    confirmClearAll: "Bạn có chắc chắn muốn xóa tất cả đơn hàng?",
+    orderProcessingWarning: "Đơn hàng đang được xử lý. Nếu bạn tắt trang web, bạn có thể mất tiền. Bạn có chắc chắn muốn rời khỏi trang?",
+    orderProcessingTitle: "Đang xử lý đơn hàng",
+    orderProcessingMessage: "Vui lòng không tắt trang web trong quá trình xử lý để tránh mất tiền",
+    autoQuantityMessage: "Số lượng sẽ được tính tự động theo số dòng comment",
+    fixedQuantityMessage: "Dịch vụ này có số lượng cố định = 1",
+    minLabel: "Tối thiểu",
+    maxLabel: "Tối đa",
+    allOrdersProcessed: "Tất cả đơn hàng đã được xử lý. Vui lòng làm mới danh sách để bắt đầu lại.",
+    // Clipboard labels
+    pasteButtonText: "Dán",
+    pasteSuccess: "Đã dán liên kết thành công!",
+    pasteEmpty: "Clipboard trống hoặc không có nội dung hợp lệ.",
+    pastePermissionDenied: "Không có quyền truy cập clipboard. Vui lòng cấp quyền hoặc dán thủ công (Ctrl+V).",
+    pasteNotFound: "Clipboard trống hoặc không có nội dung text.",
+    pasteError: "Không thể truy cập clipboard. Vui lòng dán thủ công (Ctrl+V)."
+};
+</script>
+<script src="../../../../mod/js/order.js@v=1.0.7"></script>
+
+<!-- Payment Gateways Modal Script -->
+<script>
+let paymentGatewaysModal;
+
+// Khởi tạo modal khi DOM loaded
+document.addEventListener('DOMContentLoaded', function() {
+    paymentGatewaysModal = new bootstrap.Modal(document.getElementById('paymentGatewaysModal'));
+});
+
+// Hiển thị modal chọn cổng thanh toán
+function showPaymentGatewaysModal() {
+    // Hiển thị modal
+    paymentGatewaysModal.show();
+    
+    // Reset trạng thái
+    document.getElementById('paymentGatewaysLoader').classList.remove('d-none');
+    document.getElementById('paymentGatewaysList').classList.add('d-none');
+    document.getElementById('paymentGatewaysError').classList.add('d-none');
+    
+    
+    // Gọi AJAX để lấy danh sách cổng thanh toán
+    $.ajax({
+        url: 'https://dichvu.c25tool.net/ajaxs/client/recharge.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            action: 'getActivePaymentGateways'
+        },
+        success: function(response) {
+            if (response.status === 'success' && response.data.length > 0) {
+                displayPaymentGateways(response.data);
+            } else {
+                showNoGatewaysMessage();
+            }
+        },
+        error: function() {
+            showErrorMessage();
+        }
+    });
+}
+
+// Hiển thị danh sách cổng thanh toán
+function displayPaymentGateways(gateways) {
+    const listContainer = document.getElementById('paymentGatewaysList');
+    let html = '';
+    
+    gateways.forEach(function(gateway) {
+        html += `
+            <div class="pg-gateway-card" onclick="selectPaymentGateway('${gateway.url}')">
+                <div class="pg-gateway-content">
+                    <div class="pg-gateway-icon bg-${gateway.color}">
+                        <i class="${gateway.icon}"></i>
+                    </div>
+                    <div class="pg-gateway-info">
+                        <h6 class="pg-gateway-name">${gateway.name}</h6>
+                        <p class="pg-gateway-desc">${gateway.description}</p>
+                    </div>
+                    <div class="pg-gateway-arrow">
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    listContainer.innerHTML = html;
+    
+    // Ẩn loader và hiển thị danh sách
+    document.getElementById('paymentGatewaysLoader').classList.add('d-none');
+    document.getElementById('paymentGatewaysList').classList.remove('d-none');
+}
+
+// Chọn cổng thanh toán
+function selectPaymentGateway(url) {
+    // Đóng modal
+    paymentGatewaysModal.hide();
+    
+    // Chuyển đến trang cổng thanh toán
+    setTimeout(function() {
+        window.location.href = url;
+    }, 300);
+}
+
+// Hiển thị thông báo không có cổng thanh toán nào
+function showNoGatewaysMessage() {
+    const listContainer = document.getElementById('paymentGatewaysList');
+    listContainer.innerHTML = `
+        <div class="pg-empty">
+            <div class="pg-empty-content">
+                <div class="pg-empty-icon">
+                    <i class="ri-wallet-line"></i>
+                </div>
+                <h6 class="pg-empty-title">Không có cổng thanh toán nào</h6>
+                <p class="pg-empty-text">Hiện tại không có cổng thanh toán nào khả dụng. Vui lòng liên hệ hỗ trợ để biết thêm chi tiết.</p>
+            </div>
+        </div>
+    `;
+    
+    document.getElementById('paymentGatewaysLoader').classList.add('d-none');
+    document.getElementById('paymentGatewaysList').classList.remove('d-none');
+}
+
+// Hiển thị thông báo lỗi
+function showErrorMessage() {
+    document.getElementById('paymentGatewaysLoader').classList.add('d-none');
+    document.getElementById('paymentGatewaysError').classList.remove('d-none');
+}
+</script>
+
+</body>
+
+</html>
+<!-- Modal Mua nhiều đơn hàng -->
+<div class="modal fade" id="multiOrderModal" tabindex="-1" aria-labelledby="multiOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="multiOrderModalLabel">
+                    <i class="ri-shopping-cart-2-line me-2"></i>Mua nhiều đơn hàng cùng lúc                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <!-- Cột trái: Form nhập thông tin -->
+                    <div class="col-md-6">
+                        <div class="card border-0 bg-light">
+                            <div class="card-body">
+                                <!-- Thông tin dịch vụ đang chọn -->
+                                <div class="card border-primary border-opacity-25 bg-primary-subtle mb-3"
+                                    id="multiServiceInfo" style="display: none;">
+                                    <div class="card-body py-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-grow-1">
+                                                <p class="mb-2 fw-medium" id="multiServiceName">-</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form id="multiOrderForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Danh sách liên kết <span
+                                                class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="multiLinks" rows="5"
+                                            placeholder="Nhập mỗi liên kết trên một dòng&#10;https://example.com/post1&#10;https://example.com/post2&#10;https://example.com/post3"></textarea>
+                                        <div class="form-text">
+                                            Mỗi dòng là một liên kết. Tổng cộng: <span id="linkCount"
+                                                class="fw-bold">0</span> Liên kết                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Số lượng mỗi đơn <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="number" class="form-control" id="multiQuantity" value="1"
+                                                    min="1">
+                                                <div class="form-text">
+                                                    Tối thiểu: <span id="multi-min-quantity">-</span> - Tối đa: <span id="multi-max-quantity">-</span>                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Thời gian chờ (giây) <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="number" class="form-control" id="multiDelay" value="1"
+                                                    min="0.1" step="0.1">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4" id="multiCommentContainer" style="display: none;">
+                                        <label class="form-label">Bình luận cho tất cả đơn</label>
+                                        <textarea class="form-control" id="multiComments" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <!-- Tổng số đơn hàng -->
+                                        <div
+                                            class="d-flex justify-content-between align-items-center mb-3 p-2 bg-light rounded">
+                                            <span class="text-muted fw-medium">Tổng số đơn hàng:</span>
+                                            <span class="badge bg-primary fs-6" id="totalOrders">0</span>
+                                        </div>
+
+                                        <!-- Price Summary Container giống form chính -->
+                                        <div
+                                            class="border border-dashed border-primary rounded p-3 bg-light bg-opacity-25 mt-3">
+                                            <!-- Giá trị đơn hàng -->
+                                            <div class="d-flex align-items-center justify-content-between mb-2"
+                                                id="multi-price-detail-row" style="display: none;">
+                                                <span class="text-muted fs-6">
+                                                    Giá trị đơn hàng:                                                </span>
+                                                <span class="text-muted fs-6">
+                                                    <span id="multiPrice">0</span>
+                                                </span>
+                                            </div>
+                                            <!-- Thuế VAT -->
+                                            <div class="d-flex align-items-center justify-content-between mb-2"
+                                                id="multi-tax-detail-row" style="display: none;">
+                                                <span class="text-muted fs-6">
+                                                    Thuế VAT:                                                </span>
+                                                <span class="text-muted fs-6">
+                                                    <span id="multiPriceVat">0</span> (<span id="multiTaxVat">0</span>%)
+                                                </span>
+                                            </div>
+
+                                            <!-- Separator line khi có thuế -->
+                                            <hr class="my-2 border-dashed" id="multi-price-separator"
+                                                style="display: none;">
+
+                                            <!-- Tổng tiền - nổi bật -->
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <span class="fw-bold fs-5">
+                                                    Tổng tiền cần thanh toán:                                                </span>
+                                                <span class="fw-bold fs-4">
+                                                    <span id="totalEstimatedPrice">0đ</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid gap-2 mt-4">
+                                        <button type="button" class="btn btn-primary" id="startMultiOrder">
+                                            <i class="ri-play-line me-1"></i>Bắt đầu mua đơn                                        </button>
+                                        <button type="button" class="btn btn-warning" id="pauseMultiOrder"
+                                            style="display: none;">
+                                            <i class="ri-pause-line me-1"></i>Tạm dừng                                        </button>
+                                        <button type="button" class="btn btn-success" id="resumeMultiOrder"
+                                            style="display: none;">
+                                            <i class="ri-play-line me-1"></i>Tiếp tục                                        </button>
+                                        <button type="button" class="btn btn-danger" id="stopMultiOrder"
+                                            style="display: none;">
+                                            <i class="ri-stop-line me-1"></i>Dừng hoàn toàn                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cột phải: Danh sách đơn hàng và trạng thái -->
+                    <div class="col-md-6">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h6 class="mb-0">Danh sách đơn hàng</h6>
+                                    <div class="text-end">
+                                        <small class="text-muted">Tiến trình:</small>
+                                        <div class="progress mt-1" style="height: 4px;">
+                                            <div class="progress-bar" id="multiOrderProgress" role="progressbar"
+                                                style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <small class="text-muted">
+                                            <span id="processedCount">0</span> / <span id="totalCount">0</span>
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div id="ordersList" class="multi-orders-list"
+                                    style="max-height: 400px; overflow-y: auto;">
+                                    <div class="text-center text-muted py-4">
+                                        <i class="ri-shopping-cart-line fs-1"></i>
+                                        <p class="mt-2">Nhập danh sách liên kết để bắt đầu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cảnh báo quan trọng -->
+                <div class="alert alert-warning border-0 mb-3" style="border-left: 4px solid #ffc107 !important;">
+                    <div class="d-flex align-items-start">
+                        <i class="ri-error-warning-line text-warning me-2  "></i>
+                        <div class="flex-grow-1">
+                            <p class="mb-0 text-muted">
+                                Vui lòng KHÔNG đóng trang hoặc tab này trong quá trình mua nhiều đơn hàng. Việc đóng trang có thể làm gián đoạn quá trình.                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-info" id="clearAllOrders">
+                    <i class="ri-refresh-line me-1"></i>Xóa tất cả                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Xác nhận đặt hàng -->
+<div class="modal fade" id="confirmOrderModal" tabindex="-1" aria-labelledby="confirmOrderModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="confirmOrderModalLabel">Thông tin đơn hàng</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="mb-4">
+                    <div class="row mb-3">
+                        <div class="col-4 text-muted">Dịch vụ:</div>
+                        <div class="col-8 fw-medium" id="modal-service-info">-</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 text-muted">Liên kết:</div>
+                        <div class="col-8 fw-medium">
+                            <textarea id="modal-link" class="form-control form-control-sm" rows="2"
+                                readonly>-</textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 text-muted">Số lượng:</div>
+                        <div class="col-8 fw-medium" id="modal-quantity">-</div>
+                    </div>
+                    <div class="row mb-3" id="modal-comment-row" style="display: none;">
+                        <div class="col-4 text-muted">Bình luận:</div>
+                        <div class="col-8">
+                            <textarea id="modal-comment" class="form-control form-control-sm" rows="3"
+                                readonly>-</textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 text-muted">Đặt lịch:</div>
+                        <div class="col-8 fw-medium" id="modal-schedule">-</div>
+                    </div>
+                </div>
+
+                <!-- Price Summary Container cho Modal -->
+                <div class="border border-dashed border-primary rounded p-3 bg-light bg-opacity-25">
+                    <!-- Giá trị đơn hàng -->
+                    <div class="d-flex align-items-center justify-content-between mb-2" id="modal-price-detail-row"
+                        style="display: none;">
+                        <span class="text-muted fs-6">
+                            Giá trị đơn hàng:                        </span>
+                        <span class="text-muted fs-6">
+                            <span id="modal-price">0</span>
+                        </span>
+                    </div>
+                    <!-- Thuế VAT - nhỏ hơn -->
+                    <div class="d-flex align-items-center justify-content-between mb-2" id="modal-tax-detail-row"
+                        style="display: none;">
+                        <span class="text-muted fs-6">
+                            Thuế VAT:                        </span>
+                        <span class="text-muted fs-6">
+                            <span id="modal-price-vat">0</span> (<span id="modal-tax-vat">0</span>%)
+                        </span>
+                    </div>
+
+                    <!-- Separator line khi có thuế -->
+                    <hr class="my-2 border-dashed" id="modal-price-separator" style="display: none;">
+
+                    <!-- Tổng tiền - nổi bật -->
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="fw-bold fs-5">
+                            Tổng tiền cần thanh toán:                        </span>
+                        <span class="fw-bold fs-4 text-danger">
+                            <span id="modal-total-price">-</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" id="confirm-order-btn"
+                    class="btn btn-primary px-4">Xác nhận đặt hàng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Đặt hàng thành công -->
+<div id="success-order-modal" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <div class="text-end">
+                    <button type="button" class="btn-close text-end" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="mt-2">
+                    <lord-icon src="https://cdn.lordicon.com/tqywkdcz.json" trigger="loop"
+                        style="width:150px;height:150px">
+                    </lord-icon>
+                    <h4 class="mb-3 mt-4" id="success-order-title">Đặt hàng thành công!</h4>
+                    <p class="text-muted fs-15 mb-4" id="success-order-msg"></p>
+                    <div class="hstack gap-2 justify-content-center">
+                        <button class="btn btn-primary" id="view-orders-btn">
+                            <i class="ri-file-list-3-line align-bottom me-1"></i> Xem lịch sử đơn hàng                        </button>
+                        <button class="btn btn-soft-success" id="new-order-btn">
+                            <i class="ri-add-circle-line align-bottom me-1"></i> Đặt hàng tiếp                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-light p-3 justify-content-center">
+                <p class="mb-0 text-muted">Cần hỗ trợ? <a href="../../../../client/contact.html"
+                        class="link-secondary fw-semibold">Liên hệ với chúng tôi</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal_notification" tabindex="-1" aria-labelledby="notificationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 overflow-hidden">
+            <div class="modal-header p-3">
+                <h4 class="card-title mb-0" id="notificationModalLabel"
+                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-size: 1.4rem; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <i class="ri-notification-3-line me-2"
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: pulse 2s infinite;"></i>Thông báo hệ thống                </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <style>
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.1);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+            </style>
+            <div class="modal-body">
+                <p><span style="color:#2ecc71"><strong>TƯNG BỪNG ĐẠI LỄ 30/4 - 1/5 KHUYẾN M&Atilde;I NẠP TIỀN 20%</strong></span></p>
+
+<p><strong>SUPPORT LI&Ecirc;N HỆ</strong></p>
+
+<p>- Facebook:&nbsp;<u><a href="https://www.facebook.com/c25toolshop/" target="_blank">Facebook.com/C25TOOLSHOP</a></u></p>
+
+<p>- Telegram:&nbsp;<u><a href="https://t.me/c25tool" target="_blank">https://t.me/c25tool</a></u></p>
+
+<p>- Zalo: <a href="tel:0788288957">0788288957</a></p>
+
+<p>B&ecirc;n m&igrave;nh c&oacute; nhận code Tool, Bot, Web theo y&ecirc;u cầu nha</p>
+
+<p><strong>SHOP DEV CODE TOOL, BOT, WEB</strong></p>
+
+<p><strong>&nbsp; &nbsp;&rarr;&nbsp;</strong><u><a href="dev.c25tool.net/index.html" target="_blank">DEV.C25TOOL.NET</a></u></p>
+
+<p>&nbsp;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger"
+                    id="dontShowAgainBtn">Không hiển thị lại trong 2 giờ</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById('modal_notification');
+    var dontShowAgainBtn = document.getElementById('dontShowAgainBtn');
+    var modalClosedTime = localStorage.getItem('modalClosedTime');
+
+    // Nếu modalClosedTime chưa được lưu hoặc đã quá 2 giờ, hiển thị modal
+    if (!modalClosedTime || (Date.now() - parseInt(modalClosedTime) > 2 * 60 * 60 * 1000)) {
+        var bootstrapModal = new bootstrap.Modal(modal);
+        bootstrapModal.show();
+    }
+
+    // Lưu thời gian khi modal được đóng khi người dùng click vào nút "Không hiển thị lại" và ẩn modal
+    dontShowAgainBtn.addEventListener('click', function() {
+        localStorage.setItem('modalClosedTime', Date.now());
+        var bootstrapModal = bootstrap.Modal.getInstance(modal);
+        bootstrapModal.hide();
+    });
+});
+</script>
+
+
+<!-- Âm thanh thông báo -->
+<audio id="success-sound" class="d-none">
+    <source src="../../../../assets/audio/applepay.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Kiểm tra trạng thái đăng nhập cho modal mua nhiều đơn hàng
+const USER_LOGGED_IN = false;
+</script>
